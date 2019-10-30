@@ -20,7 +20,8 @@ navLinks.forEach(function(link) {
 });
 
 function LogSize(width, height) {
-  let heading = document.querySelector(".container h6");
+  let heading = document.querySelector(".container h5");
+  heading.style.fontFamily = "serif";
   heading.textContent = `Current Size: ${width}px x ${height}px`;
 }
 
@@ -30,4 +31,19 @@ window.addEventListener("load", function() {
 
 window.addEventListener("resize", function() {
   LogSize(window.innerWidth, window.innerHeight);
+});
+
+let bannerImg = document.querySelector(".intro img");
+bannerImg.addEventListener("mouseover", function(e) {
+  e.target.style.transform = "rotate(360deg)";
+  e.target.style.transition = "2s";
+  e.target.setAttribute("title", "Click me for a surprise!");
+});
+
+bannerImg.addEventListener("click", function(e) {
+  e.target.style.opacity = 0;
+});
+
+bannerImg.addEventListener("mouseout", function(e) {
+  e.target.style.opacity = 1;
 });
