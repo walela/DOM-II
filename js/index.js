@@ -18,3 +18,16 @@ navLinks.forEach(function(link) {
     e.target.style.textDecoration = null;
   });
 });
+
+function LogSize(width, height) {
+  let heading = document.querySelector(".container h6");
+  heading.textContent = `Current Size: ${width}px x ${height}px`;
+}
+
+window.addEventListener("load", function() {
+  LogSize(window.innerWidth, window.innerHeight);
+});
+
+window.addEventListener("resize", function() {
+  LogSize(window.innerWidth, window.innerHeight);
+});
